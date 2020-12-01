@@ -1,12 +1,25 @@
 # Работа
-void Sort(int array[], int size){
-	for(int x=size/2;x>0;x/=2){
-		for(int i=x;i<size;i++){
-			for(int j=i-x;j>=0 && array[j]>array[j+x];j-=x){
-				int y=array[j];
-				array[j]=array[j + x];
-				array[j + x]=y;
-			}
-		}
-	}
+void Sort(int array[], int size){void Qsort(int *array, int size)
+    int i=0, j=size-1, z=array[size/2];
+    do{
+        while(array[i]<z){
+            i++;
+        }
+        while(array[j]>z){
+            j--;
+        }
+        if(i<=j){
+            int buf = array[i];
+            array[i] = array[j];
+            array[j] = buf;
+            i++;
+            j--;
+        }
+    }while(i<=j);
+    if(i<size){
+        Qsort(&array[i], size-i);
+    }
+    if(j>0){
+        Qsort(array, j+1);
+    }
 }
