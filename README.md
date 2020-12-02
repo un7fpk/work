@@ -1,5 +1,5 @@
 # Работа
-void Sort(int array[], int size){void Qsort(int *array, int size)
+void Qsort(int *array, int size){
     int i=0, j=size-1, z=array[size/2];
     do{
         while(array[i]<z){
