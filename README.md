@@ -1,25 +1,36 @@
 # Работа
-void Qsort(int *array, int size){
-    int i=0, j=size-1, z=array[size/2];
-    do{
-        while(array[i]<z){
-            i++;
+void Ssort(int * num, i, newsize){
+    int max, a=0;
+    while((2*i<=newsize) && (!a)){
+        if(2*i==newsize){
+            max=2*i;
         }
-        while(array[j]>z){
-            j--;
+        else if(num[2*i]>num[2*i+1]){
+            max=2*i;
         }
-        if(i<=j){
-            int buf = array[i];
-            array[i] = array[j];
-            array[j] = buf;
-            i++;
-            j--;
+        else{
+            max=2*i+1;
         }
-    }while(i<=j);
-    if(i<size){
-        Qsort(&array[i], size-i);
+        if(num[i]<num[max]){
+            int buf = num[i];
+            num[i] = num[max];
+            num[max] = buf;
+            i = max;
+        }
+        else{
+            a=1;
+        }
     }
-    if(j>0){
-        Qsort(array, j+1);
+}
+
+void Psort(int * num, int size){
+    for(int i = size/2-1;i>=0;i--){
+        Ssort(num, i, size-1);
+    }
+    for(int i = size-1;i>=1;i--){
+        int buf = num[0];
+        num[0] = num[i];
+        num[i] = buf;
+        Ssort(num, 0, i-1);
     }
 }
