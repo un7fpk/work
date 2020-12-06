@@ -1,5 +1,5 @@
 # Работа
-void Ssort(int * num, i, newsize){
+void Ssort(int * num, int i, int newsize){
     int max, a=0;
     while((2*i<=newsize) && (!a)){
         if(2*i==newsize){
