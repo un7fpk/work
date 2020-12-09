@@ -22,7 +22,7 @@ void Ssort(int * num, int i, int newsize){
     }
 }
 
-void Psort(int * num, int size){
+void Pyramidsort(int * num, int size){
     for(int i = size/2-1;i>=0;i--){
         Ssort(num, i, size-1);
     }
