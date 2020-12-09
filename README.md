@@ -22,7 +22,7 @@ void Ssort(int * num,int i, int newsize){
         }
     }
 }
-void Psort(int * num, int size){
+void Pyramidsort(int * num, int size){
     for(int i = size/2-1;i>=0;i--){
         Ssort(num, i, size-1);
     }
@@ -60,7 +60,7 @@ void Qsort(int * array, int size, int z, int * q){
 
 void Intrsort(int * array, int size, int r, int * q){
     if(size<=16 || r==0){
-        Ssort(array, 0, size);
+        Pyramidsort(array, size);
     } else {
         int a = array[0], b = array[(size-1)/2], c = array[size-1];
         if(a>b && a>c){
@@ -76,7 +76,7 @@ void Intrsort(int * array, int size, int r, int * q){
     }
     
 }
-
+/*
 int main () {
     // ввод массива 
     // размер
@@ -85,4 +85,5 @@ int main () {
     Intrsort(&array[0], size, r, q);
     free(q);    
     return 0;
+*/
 }
