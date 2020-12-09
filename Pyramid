@@ -1,0 +1,37 @@
+void Ssort(int * num, int i, int newsize){
+    int max, a=0;
+    while((2*i<=newsize) && (!a)){
+        if(2*i==newsize){
+            max=2*i;
+        }
+        else if(num[2*i]>num[2*i+1]){
+            max=2*i;
+        }
+        else{
+            max=2*i+1;
+        }
+        if(num[i]<num[max]){
+            int buf = num[i];
+            num[i] = num[max];
+            num[max] = buf;
+            i = max;
+        }
+        else{
+            a=1;
+        }
+    }
+}
+
+void Psort(int * num, int size){
+    for(int i = size/2-1;i>=0;i--){
+        Ssort(num, i, size-1);
+    }
+    for(int i = size-1;i>=1;i--){
+        int buf = num[0];
+        num[0] = num[i];
+        num[i] = buf;
+        Ssort(num, 0, i-1);
+    }
+}
+
+// main
